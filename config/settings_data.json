@@ -1,0 +1,378 @@
+{
+  "current": {
+    "color_primary": "#747474",
+    "color_septary": "#969da8",
+    "color_secondary": "#94bec7",
+    "color_tertiary": "#bad5db",
+    "color_quaternary": "#e6a6a5",
+    "color_quinary": "#f1cccb",
+    "color_senary": "#f7e9e9",
+    "color_denary": "#fff9f9",
+    "logo": "",
+    "logo_max_width": "400",
+    "footer_graphic": "",
+    "hide_quotes_bg": false,
+    "favicon": "shopify:\/\/shop_images\/favicon_260x260_bd3f6002-bc84-4522-94a5-f5fe0fec949a.png",
+    "topbar_enable": true,
+    "brands_label": "our family of brands",
+    "brand1_name": "Well Dressed Wolf",
+    "brand1_url": "http:\/\/welldressedwolf.com",
+    "brand2_name": "Omi Jo",
+    "brand2_url": "https:\/\/loveomijo.myshopify.com\/",
+    "brand3_name": "Wildling",
+    "brand3_url": "https:\/\/wildling-club.myshopify.com\/",
+    "header_tagline": "dressing well starts inside.",
+    "tagline_url": "shopify:\/\/pages\/our-mission",
+    "header_scripts": "<script>\n  (function(w, d, t, h, s, n) {\n    w.FlodeskObject = n;\n    var fn = function() {\n      (w[n].q = w[n].q || []).push(arguments);\n    };\n    w[n] = w[n] || fn;\n    var f = d.getElementsByTagName(t)[0];\n    var v = '?v=' + Math.floor(new Date().getTime() \/ (120 * 1000)) * 60;\n    var sm = d.createElement(t);\n    sm.async = true;\n    sm.type = 'module';\n    sm.src = h + s + '.mjs' + v;\n    f.parentNode.insertBefore(sm, f);\n    var sn = d.createElement(t);\n    sn.async = true;\n    sn.noModule = true;\n    sn.src = h + s + '.js' + v;\n    f.parentNode.insertBefore(sn, f);\n  })(window, document, 'script', 'https:\/\/assets.flodesk.com', '\/universal', 'fd');\n<\/script>\n<script>\n  window.fd('form', {\n    formId: '64c58102b8fd937dc5fbecd2'\n  });\n<\/script>",
+    "footer_nav_1": "footer",
+    "footer_nav1_title": "Shop",
+    "footer_nav_2": "company-info",
+    "footer_nav2_title": "Company Info",
+    "footer_nav_3": "customer-care",
+    "footer_nav3_title": "Customer Care",
+    "enable_zoom": false,
+    "special_tags": "us made,organic,hand stitched,limited,pre-order,retired,past style,coming-soon,restock-soon,restocked,anniversary,upcycled,vintage,extended-ship-time",
+    "cart_notes_enable": false,
+    "cart_vendor_enable": false,
+    "cart_quantity_enable": false,
+    "ajax_cart_method": "page",
+    "social_enable": true,
+    "social_twitter_link": "http:\/\/twitter.com\/shopify",
+    "social_facebook_link": "https:\/\/www.facebook.com\/welldressedwolf",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/welldressedwolf\/",
+    "newsletter_enable": true,
+    "newsletter_form_action": "",
+    "plus_disable_sold_out_variants": true,
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_2x_68ffea31-b9e2-455d-8a64-ad3c7f32cf91.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fff9f9",
+    "checkout_heading_font": "Glegoo",
+    "checkout_body_font": "Glegoo",
+    "checkout_accent_color": "#94bec7",
+    "checkout_button_color": "#94bec7",
+    "checkout_error_color": "#ff6d6d",
+    "zoom_enable": true,
+    "header_message": "",
+    "header_url": "",
+    "color_body_bg": "#fff",
+    "color_body_text": "#333333",
+    "color_borders": "#e5e5e5",
+    "color_footer_bg": "#f2f2f2",
+    "color_footer_social_link": "#bbbbbb",
+    "color_footer_text": "#636363",
+    "favicon_enable": false,
+    "footer_newsletter_enable": true,
+    "footer_social_enable": true,
+    "logo_use_image": false,
+    "sections": {
+      "1494449332735": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/WDW_Website_Hero_081923.jpg",
+          "img_link": "shopify:\/\/collections\/all",
+          "alt": "Well Dressed Wolf Dresses",
+          "title": "inspired by yesterday. loved today. cherished tomorrow.",
+          "caption": "Our timeless clothing is created for everyday adventures and lasting memories. <br>\r\nWe believe simple moments are beautiful, life is a celebration and even the littlest \r\ncan make a difference in our world. We are so honored to be part of your family history."
+        }
+      },
+      "1494563895987": {
+        "type": "featured-links",
+        "blocks": {
+          "1494563901682": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wdwBUTTON3.jpg",
+              "link": "shopify:\/\/collections\/all",
+              "title": "Signature line",
+              "caption": "Limited editions, weekly releases, fine fabrics, and darling details define the brand that started it all. Capture time in these innocent styles.",
+              "link_label": "Shop Well Dressed Wolf"
+            }
+          },
+          "1494564062633": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/omijoBUTTON3_c6d4eec4-50a8-4339-8dd3-9cca1c99b0d6.jpg",
+              "link": "http:\/\/Loveomijo.com",
+              "title": "Every Day",
+              "caption": "Fresh and oh-so-sweet for every single day of the week. Let the dancing begin.",
+              "link_label": "Shop Omi Jo"
+            }
+          },
+          "1494564143971": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wildlingBUTTON3.jpg",
+              "link": "http:\/\/www.gowildling.com",
+              "title": "Swim, dream, pretend",
+              "caption": "Wild adventures await with our line of swimwear, dreamwear, and high end costumes.",
+              "link_label": "Shop Wildling"
+            }
+          }
+        },
+        "block_order": [
+          "1494563901682",
+          "1494564062633",
+          "1494564143971"
+        ],
+        "settings": {
+          "title": "Explore Our Brands"
+        }
+      },
+      "1494564502231": {
+        "type": "featured-collections",
+        "blocks": {
+          "1497617607401": {
+            "type": "collection",
+            "settings": {
+              "collection": "thursday-eight"
+            }
+          },
+          "1494564804272": {
+            "type": "collection",
+            "settings": {
+              "collection": "rompers"
+            }
+          },
+          "1494564509032": {
+            "type": "collection",
+            "settings": {
+              "collection": "dresses"
+            }
+          },
+          "1497617429991": {
+            "type": "collection",
+            "settings": {
+              "collection": "all"
+            }
+          }
+        },
+        "block_order": [
+          "1497617607401",
+          "1494564804272",
+          "1494564509032",
+          "1497617429991"
+        ],
+        "settings": {
+          "title": "Explore our Styles"
+        }
+      },
+      "1494565443598": {
+        "type": "quotes-slider",
+        "blocks": {
+          "1494565554850": {
+            "type": "quote",
+            "settings": {
+              "quote": "\"I am so grateful to be part of the pack! This is why I buy every single load... It’s not just a brand it’s a way of living and I am also grateful for the memories that are created wearing our wolf.\"",
+              "author": "Summer"
+            }
+          },
+          "1497615105667": {
+            "type": "quote",
+            "settings": {
+              "quote": "As I mentioned in my first “ode to the wolf” message after receiving my first purchase – you’ve gained a fan for life. The grace, integrity, and honor with which you run WDW is second to none. Love and hugs!",
+              "author": "Christie W."
+            }
+          }
+        },
+        "block_order": [
+          "1494565554850",
+          "1497615105667"
+        ],
+        "settings": {
+          "title": "happy customers are saying"
+        }
+      },
+      "1494565784127": {
+        "type": "instagram",
+        "settings": {
+          "instagram_title": "Get social with us!"
+        }
+      },
+      "1494612235814": {
+        "type": "featured-info",
+        "settings": {
+          "text": "It's no secret that we like pretty things, but our true love is for people. \r\n<br>This passion guides our every decision from production to charitable giving.",
+          "link": "shopify:\/\/pages\/our-mission",
+          "link_label": "Read more about Well Dressed Wolf and our mission here"
+        }
+      },
+      "blog-info": {
+        "type": "blog-info",
+        "settings": {
+          "title": "the pack place",
+          "subtitle": "the little blog <em>for<\/em> our little brands",
+          "image": "shopify:\/\/shop_images\/welldressedwolf_polaroid_bcc22126-35b5-4189-8aa9-39bbb2b57b1c.png",
+          "content": "<p>Our timeless clothing is created for everyday adventures and lasting <br>memories. We believe simple moments are beautiful, life is a celebration and even the littlest can make a difference in our world. We are so honored to be part of your family history.<\/p>"
+        }
+      },
+      "blog-menu": {
+        "type": "blog-menu",
+        "settings": {
+          "title": "Shop Our Categories",
+          "sidebar_menu": "shop"
+        }
+      },
+      "about-story": {
+        "type": "about-story",
+        "blocks": {
+          "1495654062251": {
+            "type": "text-block-img",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/welldressedwolf_polaroid_bcc22126-35b5-4189-8aa9-39bbb2b57b1c.png",
+              "content": "<p>No one knows your dreams quite like your sister.<\/p>\n<p>We grew up in Louisiana, sharing a childhood infused with magic and mystery in a land of swamplands, mossy oak groves and humidity-tinged summers. The styles we embraced as kids were firmly rooted in southern tradition and casual playfulness: classical pinafores with fairy wings and rain boots, smocked dresses with cowboy boots and boas.<\/p>"
+            }
+          },
+          "1495649029910": {
+            "type": "text-block",
+            "settings": {
+              "content": "<p>Now that we both have large families of our own, we recreate the old-fashioned, timeless styles of our youth with a fresh, updated look. From our first concepts in 2012 to now, we dream, hand sketch, sample and fit every single piece in our brand, but we couldn't do it without our handpicked production artisans overseas and in the USA who actually bring them to life. Our goal is to create beautiful things and enrich the lives of all who touch our clothing— from the at-home hand stitchers to the talented factory finishers, to the sweet children who eventually wear our pieces.<\/p>"
+            }
+          },
+          "1495649102954": {
+            "type": "text-block",
+            "settings": {
+              "content": "<p>We juggle it all with the support of our tight-knit family, hardworking team, close friends and encouraging customers. <br>This makes you part of the WDW family, too.<\/p>\n<p><\/p>\n<p>Warmly,<br>Shannon &amp; Sarah<\/p>"
+            }
+          },
+          "1495654308702": {
+            "type": "gallery-block",
+            "settings": {
+              "image1": "",
+              "image1_caption": "",
+              "image2": "",
+              "image2_caption": ""
+            }
+          }
+        },
+        "block_order": [
+          "1495654062251",
+          "1495649029910",
+          "1495649102954",
+          "1495654308702"
+        ],
+        "settings": {
+          "title": "Our Fairytale"
+        }
+      },
+      "mission-info-1": {
+        "type": "mission-info-1",
+        "blocks": {
+          "1495663018937": {
+            "type": "text-block",
+            "settings": {
+              "content": "<p>Encouraging empowerment through meaningful employment is a big responsibility for the modern business owner. The fact that Well Dressed Wolf, Omi Jo, and Wildling are creating better lives for women all over our big world—including the United States—well, it makes our hearts full. We are so proud to work with family friendly teams that place huge value on growth and artistic expression.<\/p>"
+            }
+          },
+          "1495663247702": {
+            "type": "gallery-block",
+            "settings": {
+              "image1": "shopify:\/\/shop_images\/Indiafactory.jpg",
+              "image1_caption": "one of the small factories used to stitch our pieces together",
+              "image2": "shopify:\/\/shop_images\/INDIAsewingcircle.jpg",
+              "image2_caption": "handwork is done at home often in little sewing circles  like this, surrounded by family and friends"
+            }
+          },
+          "1495663040989": {
+            "type": "text-block",
+            "settings": {
+              "content": "<p>While we work with teams in El Salvador and Indonesia, the bulk of our Well Dressed Wolf pieces come from India. We think our head of production over there says it better than we ever could. In her own words, here's what she has to say about the meaningful work she's helping us do:<\/p>"
+            }
+          },
+          "1495663195669": {
+            "type": "quote-block",
+            "settings": {
+              "quote": "<p>&ldquo;Our method of working is somewhat unusual. We make high quality and unique clothing, not mass-produced items that have to be churned out at the lowest cost. The idea is to make a product we can be proud of, that can showcase some of the fabulous handwork and needlework skills we have in India, and do this so that mothers can dress their kids in beautiful clothes at a reasonable cost.\"<\/p>",
+              "quote_more": "<p>\"We work with hundreds of artisans who do the handwork on our clothes, and almost all of them are women; so it made perfect sense to plan the work so it gets done at home, by the artisan.<br><br>When we begin work on any piece, our first step is to train the artisans on the design. Following training, the artisans take the pieces back home with them to work on. We also provide free embroidery training (an &ldquo;Embroidery 101&rdquo;, so to speak) for those who are interested in learning a new skill that can give them employment.<br><br>The advantage of this method is the flexibility it provides. Artisans work at their own pace and do it from home so that they can be with their children. The income earned from this work helps them create a better life for their children; and importantly, it gives them a voice that's heard and respected in their family and community. <br><br>Some of our artisans are members of cooperatives. As part owners of the cooperative, they negotiate a fair rate for the work they do, set their delivery times and are, at every stage, in control of the process. One of the coops we work with produced the applique panels on our snowflake dresses. To me it seems the most remarkable part of the whole process, that three hundred women in a very remote corner of India can have a very immediate connect with the lives of fellow women living thousands of miles away through the work they do. <br><br>We know the garment industry in general has a bad rep for how it treats employees. And that has always made us more conscious that our work should empower not exploit. While we do subcontract the final stitching together of the garment, we have always tried to work in a way that supports individuals rather than corporations. The garments are not stitched in giant buildings with thousands of workers. We run very small teams, frequently the factory owner is hands-on and also works as the Master Cutter or Tailor in the factory. He knows the men and women who work for him and shares the same working conditions that the others in the team do. <br><br>I am certainly not saying there is no poverty or hardship in India. We are after all a developing country and we have a host of problems that need resolving, but the road to a better future is through employment... So to everyone who buys clothing made by us, I want to say that your action brings joy to our lives. In return, I sincerely hope that our work brings joy to your life too.\"<\/p>\n<p><\/p>\n<p>~Head of Production, India<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1495663018937",
+          "1495663247702",
+          "1495663040989",
+          "1495663195669"
+        ],
+        "settings": {
+          "title": "Ethical Production"
+        }
+      },
+      "mission-info-2": {
+        "type": "mission-info-2",
+        "blocks": {
+          "1495664389901": {
+            "type": "text-block",
+            "settings": {
+              "content": "<p>We have been so blessed and our own kids have more than they need. They're safe, happy, well fed and abundantly loved. It's easy to forget that not all children are so lucky. Months of searching for a way to help eventually led us to Angel House. With their assistance, we were able to build a home and secure a clean water well for 25 orphaned children in India. Soon after, we were blessed with a second opportunity to fund an orphanage that recently welcomed 25 more children home. But it won't stop there. A portion of every sale is dedicated to creating better lives for women and children through charities that are dear to our hearts, from seeking an end to human trafficking to feeding the needy. With your help we plan to make a meaningful impact on the future of our world.<\/p>"
+            }
+          },
+          "1495664424376": {
+            "type": "gallery-block",
+            "settings": {
+              "image1": "shopify:\/\/shop_images\/littledencomingin.jpg",
+              "image1_caption": "the opening of our first Little Den orphanage",
+              "image2": "shopify:\/\/shop_images\/littledenconfetti.jpg",
+              "image2_caption": "celebrating their new home"
+            }
+          }
+        },
+        "block_order": [
+          "1495664389901",
+          "1495664424376"
+        ],
+        "settings": {
+          "title": "Giving Back"
+        }
+      },
+      "tag-flags": {
+        "type": "tag-flags",
+        "blocks": {
+          "1497399249098": {
+            "type": "tag",
+            "settings": {
+              "tag": "organic"
+            }
+          }
+        },
+        "block_order": [
+          "1497399249098"
+        ],
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "1494449332735",
+      "1494564502231",
+      "1494565443598",
+      "1494612235814",
+      "1494563895987",
+      "1494565784127"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "ajax_cart_method": "drawer",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#e5e5e5",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#747474",
+      "color_secondary": "#bbb",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "",
+      "social_twitter_link": ""
+    }
+  }
+}

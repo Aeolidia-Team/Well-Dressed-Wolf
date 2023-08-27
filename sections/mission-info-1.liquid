@@ -1,0 +1,170 @@
+{% javascript %}
+  // Toggle the read more
+  $('.quote-more').hide();
+
+  $('.read-more').click(function(){
+      $('.quote-more').slideToggle('fast');
+      $(this).slideToggle('fast');
+  });
+
+  // Make toggles keyboard accessible
+  $('.read-more').attr('tabindex', '0');
+  $('.read-more').keydown(function(e){
+      if(e.which == 40){ // down arrow key
+          e.preventDefault();
+          $(this).click();
+      }
+  });
+{% endjavascript %}
+
+{% if section.blocks.size > 0 %}
+  <div class="mission1-wrapper">
+    <div class="wrapper">
+      <img class="star" src="{{ 'star.svg' | asset_url }}" alt="">
+
+      {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
+
+      {% for block in section.blocks %}
+        <div class="custom-item" {{ block.shopify_attributes }}>
+        
+        {% case block.type %}
+
+          {% when 'text-block' %}
+            {% if block.settings.content != blank %}{{ block.settings.content }}{% endif %}
+
+          {% when 'quote-block' %}
+            {% if block.settings.quote != blank %}
+              <div class="quote">
+
+                <?xml version="1.0" encoding="utf-8"?>
+                <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                <svg version="1.1" id="COLOR" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                   width="104px" height="42px" viewBox="-253 376.4 104 42" style="enable-background:new -253 376.4 104 42;" xml:space="preserve">
+                <style type="text/css">
+                  .st0{fill:#E5A5A5;}
+                </style>
+                <circle class="st0" cx="-239.5" cy="382.4" r="5.6"/>
+                <path class="st0" d="M-243,385.9c0,0-8.3,6.7-10,7.2v6.4c0,0,5.2-5.7,7.1-5.6c0,0,4-0.7,2.6,5.5c0,0-1.5,6.9-9.6,11.6v6.8
+                  c0,0,9.9-4.8,13.2-8.8l0.1-27.7L-243,385.9z"/>
+                <path class="st0" d="M-236.7,386c0,0,8.3,6.7,10,7.2v6.4c0,0-5.2-5.7-7.1-5.6c0,0-4-0.7-2.6,5.5c0,0,1.5,6.9,9.6,11.6v6.8
+                  c0,0-9.9-4.8-13.2-8.8v-27.6L-236.7,386z"/>
+                <circle class="st0" cx="-213.7" cy="382.4" r="5.6"/>
+                <path class="st0" d="M-217.2,385.9c0,0-8.3,6.7-10,7.2v6.4c0,0,5.2-5.7,7.1-5.6c0,0,4-0.7,2.6,5.5c0,0-1.5,6.9-9.6,11.6v6.8
+                  c0,0,9.9-4.8,13.2-8.8l0.1-27.7L-217.2,385.9z"/>
+                <path class="st0" d="M-210.8,386c0,0,8.3,6.7,10,7.2v6.4c0,0-5.2-5.7-7.1-5.6c0,0-4-0.7-2.6,5.5c0,0,1.5,6.9,9.6,11.6v6.8
+                  c0,0-9.9-4.8-13.2-8.8l-0.1-27.6L-210.8,386z"/>
+                <circle class="st0" cx="-187.7" cy="382.4" r="5.6"/>
+                <path class="st0" d="M-191.2,385.9c0,0-8.3,6.7-10,7.2v6.4c0,0,5.2-5.7,7.1-5.6c0,0,4-0.7,2.6,5.5c0,0-1.5,6.9-9.6,11.6v6.8
+                  c0,0,9.9-4.8,13.2-8.8l0.1-27.7L-191.2,385.9z"/>
+                <path class="st0" d="M-184.8,386c0,0,8.3,6.7,10,7.2v6.4c0,0-5.2-5.7-7.1-5.6c0,0-4-0.7-2.6,5.5c0,0,1.5,6.9,9.6,11.6v6.8
+                  c0,0-9.9-4.8-13.2-8.8l-0.1-27.6L-184.8,386z"/>
+                <circle class="st0" cx="-162.2" cy="382.4" r="5.6"/>
+                <path class="st0" d="M-165.3,385.9c0,0-8.3,6.7-10,7.2v6.4c0,0,5.2-5.7,7.1-5.6c0,0,4-0.7,2.6,5.5c0,0-1.5,6.9-9.6,11.6v6.8
+                  c0,0,9.9-4.8,13.2-8.8v-27.6L-165.3,385.9z"/>
+                <path class="st0" d="M-159,386c0,0,8.3,6.7,10,7.2v6.4c0,0-5.2-5.7-7.1-5.6c0,0-4-0.7-2.6,5.5c0,0,1.5,6.9,9.6,11.6v6.8
+                  c0,0-9.9-4.8-13.2-8.8l-0.1-27.6L-159,386z"/>
+                </svg>
+                {{ block.settings.quote }}
+                {% if block.settings.quote_more != '' %}<p class="read-more toggle">{{ 'blogs.article.read_more' | t }}</p>{% endif %}
+                {% if block.settings.quote_more != '' %}
+                  <div class="quote-more">{{ block.settings.quote_more }}</div>
+                {% endif %} 
+              </div>
+            {% endif %}
+
+          {% when 'gallery-block' %}
+            <div class="grid-uniform">
+              {% if block.settings.image1 != blank %}
+                <div class="grid__item grid-img large--seven-twelfths medium--seven-twelfths">
+                  <img src="{{ block.settings.image1 | img_url:'800x580', crop: 'center' }}" alt="">
+                  {% if block.settings.image1_caption != blank %}<p class="caption">{{ block.settings.image1_caption }}</p>{% endif %}
+                </div>
+              {% endif %}
+              {% if block.settings.image2 != blank %}
+                <div class="grid__item grid-img large--five-twelfths medium--five-twelfths">
+                  <img src="{{ block.settings.image2 | img_url:'800x822', crop: 'center' }}" alt="">
+                  {% if block.settings.image2_caption != blank %}<p class="caption">{{ block.settings.image2_caption }}</p>{% endif %}
+                </div>
+              {% endif %}
+            </div>
+      
+          {% endcase %}
+        </div><!--//custom-item-->
+      {% endfor %}
+    </div>
+    <!--//wrapper-->
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Mission info section 1",
+    "class": "mission-info-1 rte",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text-block",
+        "name": "Text block",
+        "settings": [
+          {
+            "type": "html",
+            "id": "content",
+            "label": "Content",
+            "info": "You can use simple HTML here. Example paragraph: <p>This is the text</p> Example link: <a href=\"/pages/about\">About</a>"
+          }
+        ]
+      },
+      {
+        "type": "quote-block",
+        "name": "Quote block",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "richtext",
+            "id": "quote_more",
+            "label": "Long quote",
+            "info": "Add the text that appears after clicking read more link"
+          }
+        ]
+      },
+      {
+        "type": "gallery-block",
+        "name": "Gallery",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image 1",
+            "info": "This image will be automatically cropped to be the same height as image 2."
+          },
+          {
+            "type": "text",
+            "id": "image1_caption",
+            "label": "Image 1 caption"
+          },
+          {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image 2",
+            "info": "This image will be automatically cropped to be the same height as image 1."
+          },
+          {
+            "type": "text",
+            "id": "image2_caption",
+            "label": "Image 2 caption"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

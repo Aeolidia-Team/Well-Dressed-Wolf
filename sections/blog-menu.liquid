@@ -1,0 +1,31 @@
+{% if section.settings.sidebar_menu != '' %}
+  <aside class="blog-menu sidebar-section">
+    {% if section.settings.title != '' %}<h3>{{ section.settings.title }}</h3>{% endif %}
+    <ul>
+      {% for link in linklists[section.settings.sidebar_menu].links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+      {% endfor %}
+    </ul>
+  </aside>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Sidebar menu",
+    "class": "blog-sidebar-menu",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "type": "link_list",
+        "id": "sidebar_menu",
+        "label": "Sidebar menu"
+      }
+    ]
+   }
+{% endschema %}

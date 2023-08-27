@@ -1,0 +1,85 @@
+/* =Toggle menu icon when drawer is open
+-------------------------------------------------------------- */
+
+$(document).ready(function(){
+  (function($) {
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+    $.fn.attrchange = function(callback) {
+      if (MutationObserver) {
+          var options = {
+              subtree: false,
+              attributes: true
+          };
+
+          var observer = new MutationObserver(function(mutations) {
+              mutations.forEach(function(e) {
+                  callback.call(e.target, e.attributeName);
+              });
+          });
+
+          return this.each(function() {
+              observer.observe(this, options);
+          });
+      }
+    }
+  })(jQuery);
+
+  //Now you need to append event listener
+  $('#PageContainer').attrchange(function(attrName) {
+    var $node = $( this );
+    if( $node.hasClass( "is-transitioning" ) ) {
+      //console.log('open');
+      $('#menu-icon').toggleClass('open');
+      } else {
+      //console.log('closed');
+      $('#menu-icon').toggleClass('open');
+    }
+
+    if(attrName=='class'){
+      //console.log('class changed');
+    } else {
+      //OTHER ATTR CHANGED
+    }
+  });
+});
+
+/* =FancyBox
+-------------------------------------------------------------- */
+
+$(function() {
+  $('.fancybox').fancybox({
+    padding: 0,
+    margin: 0,
+    helpers : {
+
+      title : {
+          type : 'outside'
+      },
+
+      overlay : {
+        css : {
+            'background' : 'rgba(255, 255, 255, 0.8)'
+        }
+      }
+    }
+  });
+});
+
+/* Sharing Popups
+--------------------*/
+
+$(".share-it").click(function(){
+window.open($(this).attr("href"), 'social_share', 'height=288, width=750, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no');
+return false;
+}); 
+
+/* animate.css and wow.js animations
+---------------------------------*/
+jQuery(document).ready(function($){
+  $('.index-section').addClass('wow fadeIn');
+  $('.index-section.hero .caption').addClass('wow fadeIn');
+ /* $('.intro-wrapper').addClass('wow fadeIn');
+  $('.story-wrapper').addClass('wow fadeIn');
+  $('.mission-info-1').addClass('wow fadeIn');
+  $('.mission-info-2').addClass('wow fadeIn');*/
+}); 

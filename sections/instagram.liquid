@@ -1,0 +1,27 @@
+<div class="wrapper">
+  {% if section.settings.instagram_title != '' %}<h2>{% if settings.social_instagram_link != '' %}<a target="_blank" href="{{ settings.social_instagram_link }}">{% endif %}{{ section.settings.instagram_title }}{% if settings.instagram_handle != '' %}</a>{% endif %}</h2>{% endif %}
+  <div id="insta-feed"></div>
+  <!--//instagram-->
+</div>
+<!--//wrapper-->
+
+{% schema %}
+  {
+    "name": "Instagram gallery",
+    "class": "index-section instagram-gallery",
+    "settings": [
+      {
+        "type": "text",
+        "id": "instagram_title",
+        "label": "Heading",
+        "default": "Follow Along"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Instagram gallery",
+        "category": "Instagram"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,37 @@
+<!-- /snippets/blog-sidebar.liquid -->
+
+{% section 'blog-info' %}
+
+<aside class="blog-search sidebar-section">
+  {% if section.settings.title != '' %}<h3><span>{{ 'blogs.sidebar.search_header' | t }}</span></h3>{% endif %}
+  <form action="/search" method="get" class="input-group search-bar" role="search">
+      {% comment %}
+        Show only blog posts.
+      {% endcomment %}
+    <input type="hidden" name="type" value="article">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="" class="input-group-field" aria-label="{{ 'blogs.sidebar.search_header' | t }}">
+    <span class="input-group-btn">
+      <button type="submit" class="btn icon-fallback-text">
+        <span class="icon icon-search" aria-hidden="true"></span>
+        <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+      </button>
+    </span>
+  </form>
+</aside>
+<!-- //blog-search -->
+
+{% if blog.all_tags.size > 0 %}
+  <aside class="blog-tags sidebar-section">
+    {% if section.settings.title != '' %}<h3><span>{{ 'blogs.sidebar.categories' | t }}</span></h3>{% endif %}
+    <select onchange="window.location = '/blogs/{{ blog.title | handleize }}/tagged/' + this.value;">
+    {% for tag in blog.all_tags %}
+      <option value="{{tag | handleize }}">{{tag}}</option>
+    {% endfor %}
+    <option value="{{tag}}" selected="selected">{{ 'blogs.sidebar.categories_menu' | t }}</option>
+    </select>
+    </form>
+  </aside>
+  <!-- //blog-tags -->
+{% endif %}
+
+{% section 'blog-menu' %}

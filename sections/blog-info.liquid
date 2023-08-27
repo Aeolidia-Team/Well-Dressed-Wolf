@@ -1,0 +1,41 @@
+{% if section.settings.content != '' %}
+  <aside class="sidebar-section rte">
+    <img class="confetti" src="{{ 'confetti_blog.svg' | asset_url }}" alt="">
+    {% if section.settings.title != '' %}<h3><a href="{{ blog.url }}">{{ section.settings.title }}</a></h3>{% endif %}
+    {% if section.settings.subtitle != '' %}<p class="subtitle"><a href="{{ blog.url }}">{{ section.settings.subtitle }}</a></p>{% endif %}
+    {% if section.settings.image != blank %}
+      <img src="{{ section.settings.image | img_url:'500x500' }}" alt="">
+    {% endif %}
+    {{ section.settings.content }}
+  </aside><!--//sidebar-section-->
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Blog Info",
+    "class": "blog-info",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "subtitle",
+        "type": "text",
+        "label": "Subtitle"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Recommended size: at least 500px wide"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "Content"
+      }
+    ]
+   }
+{% endschema %}

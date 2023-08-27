@@ -1,0 +1,74 @@
+{% comment %}  
+  Disable sold-out variants.
+  Only works for products that have one option.
+  It won't work with products that have two or three options, like Size and Color.
+  See: https://docs.myshopify.io/themes/customization/products/hide-variants-that-are-sold-out
+  
+  See https://docs.shopify.com/themes/customization/products/how-to-add-a-pick-an-option-to-drop-downs
+{% endcomment %}
+
+<script>
+  {% if product.variants.size > 1 and product.options.size == 1 and settings.plus_disable_sold_out_variants %}
+    var $addToCartForm = $('form[action="/cart/add"]');
+    
+    if (window.MutationObserver && $addToCartForm.length) {
+      if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
+        observer.disconnect();
+      }
+      
+      var config = { childList: true, subtree: true };
+      var observer = new MutationObserver(function() {   
+        // Disable sold-out variants 
+        {% for variant in product.variants %}
+          {% unless variant.available %}
+            jQuery('.single-option-selector option:eq({{ forloop.index0 }})').prop('disabled', true);
+          {% endunless %}
+        {% endfor %}
+        
+        // Add 'Pick an option'
+        {% unless product.selected_variant %}
+          {% for option in product.options %}
+            $('.single-option-selector:eq({{ forloop.index0 }})')
+              .filter(function() { 
+                return $(this).find('option').size() > 1  
+              })
+              .prepend('<option value="">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
+              .val('')
+              .trigger('change');
+          {% endfor %}
+        {% endunless %}
+        
+        observer.disconnect();
+      });  
+      
+      observer.observe($addToCartForm[0], config);
+    } 
+  {% else %}
+    var $addToCartForm = $('form[action="/cart/add"]');
+    if (window.MutationObserver && $addToCartForm.length) {
+      if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
+        observer.disconnect();
+      }
+      
+      var config = { childList: true, subtree: true };
+      var observer = new MutationObserver(function() {   
+        {% unless product.selected_variant %}
+          {% for option in product.options %}
+            $('.single-option-selector:eq({{ forloop.index0 }})')
+              .filter(function() { 
+                return $(this).find('option').size() > 1  
+              })
+              .prepend('<option value="">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
+              .val('')
+              .trigger('change');
+          {% endfor %}
+        {% endunless %}
+        
+        observer.disconnect();
+      });  
+      
+      observer.observe($addToCartForm[0], config);
+    } 
+  {% endif %}
+</script>
+  

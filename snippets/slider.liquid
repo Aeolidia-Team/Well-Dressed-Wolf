@@ -1,0 +1,35 @@
+{% if settings.show_home_slider %}
+  <div class="slider">
+    <ul class="bxslider bxslider-home">
+        {% if settings.show_slider_item_1 %}
+        <li>
+          {% if settings.slider_item_1_link != empty %}
+            {{ 'slider-item-1.jpg' | asset_url | img_tag: settings.slider_item_1_alt | link_to: settings.slider_item_1_link }}
+          {% else %}
+            {{ 'slider-item-1.jpg' | asset_url | img_tag: settings.slider_item_1_alt }}
+          {%endif%}
+        </li>
+        {% endif %}
+        
+        {% if settings.show_slider_item_2 %}
+        <li>
+          {% if settings.slider_item_2_link != empty %}
+          {{ 'slider-item-2.jpg' | asset_url | img_tag: settings.slider_item_2_alt | link_to: settings.slider_item_2_link }}
+          {% else %}
+            {{ 'slider-item-2.jpg' | asset_url | img_tag: settings.slider_item_2_alt }}
+          {%endif%}
+        </li>
+        {% endif %}
+
+        {% if settings.show_slider_item_3 %}
+        <li>
+          {% if settings.slider_item_3_link != empty %}
+          {{ 'slider-item-3.jpg' | asset_url | img_tag: settings.slider_item_3_alt | link_to: settings.slider_item_3_link }}
+          {% else %}
+            {{ 'slider-item-3.jpg' | asset_url | img_tag: settings.slider_item_3_alt }}
+          {%endif%}
+        </li>
+        {% endif %}
+      </ul>
+    </div><!-- .slider -->
+{% endif %}

@@ -1,0 +1,44 @@
+<!-- See: http://camgould.com/blog/posts/handy-lite-shopify-sharing-code -->
+{% if template contains 'product' %}
+	<ul class="social-icons inline-list sharing">
+		<li class="label">{{ 'products.product.social_label' | t }}</li>
+		<li title="Share on Facebook"><a class="share-it icon icon-facebook"  target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://{{ shop.domain }}{{ product.url }}"></a></li>
+
+		<li title="Share on Twitter"><a class="share-it icon icon-twitter"  target="_blank" href="https://twitter.com/intent/tweet?text={{ product.title | truncate: 30 }}&url=http%3A%2F%2F{{ shop.domain }}{{ product.url | replace: '/', '%2F' }}"></a></li>
+
+		<li title="Share on Pinterest"><a class="share-it icon icon-pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=http://{{ shop.domain }}{{ product.url }}&description={{ product.title | strip_html | escape | replace: ' ', '%20' }}%20by%20{{ shop.name | replace:' ','%20' }}&media=https:{{ product.featured_image.src | product_img_url: 'large' }}"></a></li>
+
+		<!--<li title="Share on Google+"><a class="share-it icon icon-googleplus" target="_blank" href="https://plus.google.com/share?url=http://{{ shop.domain }}{{ product.url }}"></a></li>-->
+	</ul>
+
+{% else %}
+
+	<ul class="social-icons inline-list sharing">
+		<li class="label">{{ 'blogs.article.sharing_label' | t }}</li>
+
+		<li title="Share on Facebook" ><a class="share-it icon icon-facebook-alt"  target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://{{ shop.domain }}{{ article.url }}"></a></li>
+
+		<li title="Share on Twitter"><a class="share-it icon icon-twitter-alt" target="_blank" href="https://twitter.com/intent/tweet?text={{ article.title | replace: '+', 'and' }}&url=http%3A%2F%2F{{ shop.domain }}{{ article.url | replace: '/', '%2F' }}"></a></li>
+
+		<li title="Share by Email"><a class="icon icon-email" href="mailto:?&amp;subject=Check out this article from {{ shop.name }}!&amp;body=http://{{ shop.domain }}{{ article.url }}"></a></li>
+
+		<!--<li title="Share on Pinterest"><a class="share-it icon icon-pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=http://{{ shop.domain }}{{ article.url }}&description={{ article.title | strip_html | escape | replace: '+', 'and' | replace: ' ', '%20'  }}%20by%20{{ shop.name | replace:' ','%20' }}&media=
+			{% if article.image %}
+				{% assign my_image_url=article | img_url: 'master' | escape %}
+					https:{{ my_image_url }}
+				{% else %}
+					{% assign my_image_url=article.content | escape %}
+					{% if my_image_url contains '&lt;img' %}
+						{% assign my_image_url = my_image_url | split: 'src=&quot;' %}
+						{% assign my_image_url = my_image_url[1] | split: '&quot;' %}
+						{% assign my_image_url = my_image_url[0] | remove: '//cdn' %}
+						{% assign my_image_url = my_image_url | remove: 'http:http://' %}
+						{% assign my_image_url = my_image_url | remove: 'https:' %}
+						{{ my_image_url | prepend: 'https://cdn'}}
+					{% endif %}
+			{% endif %}"></a></li>-->
+
+		<!--<li title="Share Google+"><a class="share-it icon icon-googleplus" target="_blank" href="https://plus.google.com/share?url=http://{{ shop.domain }}{{ article.url }}"></a></li>-->
+	</ul>
+
+{% endif %}

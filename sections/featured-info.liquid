@@ -1,0 +1,64 @@
+<div class="wrapper">              
+  <?xml version="1.0" encoding="utf-8"?>
+  <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+  <svg version="1.1" id="COLOR" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="104px" height="42px" viewBox="-253 376.4 104 42" style="enable-background:new -253 376.4 104 42;" xml:space="preserve">
+  <style type="text/css">
+    .st0{fill:#E5A5A5;}
+  </style>
+  <circle class="st0" cx="-239.5" cy="382.4" r="5.6"/>
+  <path class="st0" d="M-243,385.9c0,0-8.3,6.7-10,7.2v6.4c0,0,5.2-5.7,7.1-5.6c0,0,4-0.7,2.6,5.5c0,0-1.5,6.9-9.6,11.6v6.8
+    c0,0,9.9-4.8,13.2-8.8l0.1-27.7L-243,385.9z"/>
+  <path class="st0" d="M-236.7,386c0,0,8.3,6.7,10,7.2v6.4c0,0-5.2-5.7-7.1-5.6c0,0-4-0.7-2.6,5.5c0,0,1.5,6.9,9.6,11.6v6.8
+    c0,0-9.9-4.8-13.2-8.8v-27.6L-236.7,386z"/>
+  <circle class="st0" cx="-213.7" cy="382.4" r="5.6"/>
+  <path class="st0" d="M-217.2,385.9c0,0-8.3,6.7-10,7.2v6.4c0,0,5.2-5.7,7.1-5.6c0,0,4-0.7,2.6,5.5c0,0-1.5,6.9-9.6,11.6v6.8
+    c0,0,9.9-4.8,13.2-8.8l0.1-27.7L-217.2,385.9z"/>
+  <path class="st0" d="M-210.8,386c0,0,8.3,6.7,10,7.2v6.4c0,0-5.2-5.7-7.1-5.6c0,0-4-0.7-2.6,5.5c0,0,1.5,6.9,9.6,11.6v6.8
+    c0,0-9.9-4.8-13.2-8.8l-0.1-27.6L-210.8,386z"/>
+  <circle class="st0" cx="-187.7" cy="382.4" r="5.6"/>
+  <path class="st0" d="M-191.2,385.9c0,0-8.3,6.7-10,7.2v6.4c0,0,5.2-5.7,7.1-5.6c0,0,4-0.7,2.6,5.5c0,0-1.5,6.9-9.6,11.6v6.8
+    c0,0,9.9-4.8,13.2-8.8l0.1-27.7L-191.2,385.9z"/>
+  <path class="st0" d="M-184.8,386c0,0,8.3,6.7,10,7.2v6.4c0,0-5.2-5.7-7.1-5.6c0,0-4-0.7-2.6,5.5c0,0,1.5,6.9,9.6,11.6v6.8
+    c0,0-9.9-4.8-13.2-8.8l-0.1-27.6L-184.8,386z"/>
+  <circle class="st0" cx="-162.2" cy="382.4" r="5.6"/>
+  <path class="st0" d="M-165.3,385.9c0,0-8.3,6.7-10,7.2v6.4c0,0,5.2-5.7,7.1-5.6c0,0,4-0.7,2.6,5.5c0,0-1.5,6.9-9.6,11.6v6.8
+    c0,0,9.9-4.8,13.2-8.8v-27.6L-165.3,385.9z"/>
+  <path class="st0" d="M-159,386c0,0,8.3,6.7,10,7.2v6.4c0,0-5.2-5.7-7.1-5.6c0,0-4-0.7-2.6,5.5c0,0,1.5,6.9,9.6,11.6v6.8
+    c0,0-9.9-4.8-13.2-8.8l-0.1-27.6L-159,386z"/>
+  </svg>
+
+  {% if section.settings.text %}<p class="caption">{{ section.settings.text }}</p>{% endif %}
+  <p>{% if section.settings.link %}<a href="{{ section.settings.link }}">{% endif %}{% if section.settings.link_label != '' %}{{ section.settings.link_label }} &gt;{% endif %}{% if section.settings.link %}</a>{% endif %}</p>
+</div>
+<!--//wrapper-->
+
+{% schema %}
+  {
+    "name": "Featured info",
+    "class": "index-section featured-info",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "link_label",
+        "label": "Link text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured info",
+        "category": "Sections"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,49 @@
+<div class="wrapper">
+  {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
+  <div class="featured-sections grid-uniform">
+      {% for block in section.blocks %}
+        <div class="grid__item large--one-quarter medium--one-half" {{ block.shopify_attributes }}>
+          {% if block.settings.collection != '' %}
+            <a href="{{ collections[block.settings.collection].url }}"><img src="{{ collections[block.settings.collection].image | img_url:'600x600', crop: 'center' }}" alt="{{ collections[block.settings.collection].title }}"></a>
+            <p><a href="{{ collections[block.settings.collection].url }}">{{ collections[block.settings.collection].title }}</a></p>
+          {% endif %}
+        </div>
+      {% endfor %}
+  </div>
+</div>
+<!--//wrapper-->
+
+{% schema %}
+  {
+    "name": "Featured collections",
+    "class": "index-section featured-collections",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Shop by Category"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collections",
+        "category": "Collections"
+      }
+    ]
+  }
+{% endschema %}

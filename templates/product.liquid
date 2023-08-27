@@ -1,0 +1,338 @@
+<!-- /templates/product.liquid -->
+{% comment %}
+
+  Rich snippets (itemscope, itemtype, etc.) for products are a theme requirement,
+  and allow search engines to easily understand what the content is.
+
+  For more information on these Scheme.org tags, visit:
+    - http://schema.org/docs/gs.html
+
+{% endcomment %}
+
+<div itemscope itemtype="http://schema.org/Product">
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  {% comment %}
+    Get first variant, or deep linked one
+  {% endcomment %}
+  {% assign current_variant = product.selected_or_first_available_variant %}
+
+  <div class="page-content-wrapper product-single">
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="product-content">
+          <div class="product-images">
+            {% include 'breadcrumb' %}
+
+            {% if settings.enable_zoom %}
+              <div class="product-images-grid{% if product.images.size > 1 %} has-thumbs{% endif %}">
+                <div class="thumbs">
+                  {% if product.images.size > 1 %}
+                      <ul class="product-single__thumbnails grid-uniform">
+                        {% for image in product.images %}
+                            <li class="grid__item small--one-quarter medium--one-quarter large--one-whole">
+                              <a href="{{ image | product_img_url: '1200x' }}" rev="{{ image | product_img_url: '1200x' }}" rel="zoom-id:zoom"><img src="{{ image | product_img_url: 'x100'}}" alt="{{product.title | escape }}"/></a>
+                            </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                 </div>
+                <!--//.thumbs-->
+
+                <div class="product-single__photos" id="ProductPhoto">
+                  {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+                    <a href="{{ featured_image | img_url: '1200x' }}" data-options="hint: always; zoomPosition: inner" class="MagicZoom" id="zoom">
+                      <img src="{{ featured_image | img_url: '1024x' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+                    </a>
+                </div>
+              </div>
+              <!--//.product-images-grid-->
+            {% else %}
+              <div class="product-images-grid{% if product.images.size > 1 %} has-thumbs{% endif %}">
+                <div class="thumbs">
+                  {% comment %}
+                    Create thumbnails if we have more than one product image
+                  {% endcomment %}
+                  {% if product.images.size > 1 %}
+                  
+                    {% comment %}
+                      Don't switch thumbs with main image because we're using FancyBox instead
+                    {% endcomment %}
+                    {% comment %}<ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">{% endcomment %}
+                    <ul class="product-single__thumbnails grid-uniform">
+                      {% for image in product.images %}
+                        {% comment %}unless image == featured_image{% endcomment %}
+                          <li class="grid__item small--one-quarter medium--one-quarter large--one-whole">
+                            <a rel="group" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail fancybox">
+                              <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                            </a>
+                          </li>
+                        {% comment %}endunless{% endcomment %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                 </div>
+                <!--//.thumbs-->
+
+                <div class="product-single__photos" id="ProductPhoto">
+                  {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+            
+                  <a class="fancybox" rel="group" href="{{ featured_image | img_url: '1024x1024' }}">
+                    <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+                  </a>
+                </div>
+              </div>
+              <!--//.product-images-grid-->
+            {% endif %}
+
+            {% include 'sharing' %}
+          </div>
+
+          <div class="product-info">
+            <div class="product-wrapper">
+
+              {% if product.vendor != '' %}<p class="vendor">{{ product.vendor }}</p>{% endif %}
+              <h1 itemprop="name">{{ product.title }}</h1>
+
+              <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+                <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+                {% comment %}
+                  ID addToCartForm is a selector for the ajax cart plugin
+                {% endcomment %}
+                <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+
+                  <div class="price">
+                    <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                    <span id="ProductPrice" class="h2" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+                      {{ current_variant.price | money }}
+                    </span>
+                    {% if product.compare_at_price_max > product.price %}
+                      <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+                      <p id="ComparePrice">
+                        {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+                      </p>
+                    {% endif %}
+                  </div>
+
+                  {% comment %}
+                    Add product variants as a dropdown.
+                      - By default, each variant (or combination of variants) will display as its own <option>
+                      - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
+
+                    You can leverage jQuery to add a callback on page load and each time the select element changes:
+                      - Include option_selection.js (as seen at the bottom of this file)
+                      - This allows you to use JavaScript anytime the variant dropdown changes
+                      - This also separates out your variant options (ie. size, color, etc.) to separate select elements
+
+                    For more information on products with multiple options, visit:
+                      - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
+                  {% endcomment %}
+                  <select name="id" id="productSelect" class="product-single__variants">
+                    {% for variant in product.variants %}
+                      {% if variant.available %}
+                        {% comment %}
+                          Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                        {% endcomment %}
+                        {% comment %}<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>{% endcomment %}
+
+                        <option {% if forloop.length <= 1 and variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                      {% else %}
+                        <option disabled="disabled">
+                          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                        </option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+
+                  {% include 'product-customizer' %} 
+
+                  {% if product.tags contains "show-quantity" %}<label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label><input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">{% endif %}
+               
+                  <button type="submit" name="add" id="AddToCart" class="btn">
+                    <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+                  </button>
+                  
+                </form>
+
+              </div>
+
+              <div class="product-description toggles rte" itemprop="description">
+                {{ product.description }}
+              </div><!-- .product-description.toggles -->
+              {% include 'sharing' %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //product-content -->
+    </div>
+    <!-- //wrapper -->
+
+  </div>
+  <!-- //page-content -->
+
+  {% include 'related-products' %}
+
+</div>
+<!-- //page-content-wrapper -->
+
+{% comment %}
+  To take advantage of a callback on the select dropdown, add option_selection.js
+  and customize the JS in timber.productPage as needed.
+
+  Currently, timber.productPage does the following:
+    - Hides your <select> tag from above
+    - Breaks out the product variants into separate product options, if more than one exists
+    - Generates a <select> tag for each product option
+    - Enables/disables elements based on variant availability
+
+  Callback notes:
+    - Keep the callback available to the global scope (window.selectCallback) so that advanced
+      addons can override it.
+      * E.g. multiple currencies http://docs.shopify.com/manual/configuration/store-customization/currencies-and-translations/currencies/how-to-toggle-between-two-currencies
+{% endcomment %}
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+<script>
+  var selectCallback = function(variant, selector) {
+    timber.productPage({
+      money_format: "{{ shop.money_format }}",
+      variant: variant,
+      selector: selector
+    });
+  };
+
+  jQuery(function($) {
+    new Shopify.OptionSelectors('productSelect', {
+      product: {{ product | json }},
+      onVariantSelected: selectCallback,
+      enableHistoryState: true
+    });
+
+    // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+      //$('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+    {% endif %}
+
+    // Hide selectors if we only have 1 variant and its title contains 'Default'.
+    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      $('.selector-wrapper').hide();
+    {% endif %}
+  });
+</script>
+
+<script>
+   /* Toggle links
+  --------------------*/
+
+  jQuery(document).ready(function($){
+    // Product description toggle links
+    $('.product-description .toggled-content').hide();
+
+    // Show first toggle on load
+    $('.product-description .toggled-content:first-of-type').show();
+
+    $('.product-description.toggles').find('.toggle').click(function(){
+      // Set this toggle to active
+      $(this).toggleClass('active');
+
+      // Remove active class on inactive toggles
+      $(".toggle").not($(this)).removeClass( 'active' );
+
+      // Expand or collapse this panel
+      $(this).next().slideToggle('fast');
+
+      // Hide the other panels
+      $(".toggled-content").not($(this).next()).slideUp('slow');
+    });
+
+    // Make toggles keyboard accessible
+    $('.toggles').find('.toggle').keydown(function(e){
+        if(e.which == 40){ // down arrow key
+            e.preventDefault();
+            $(this).click();
+        }
+    });
+  });
+
+  /* Product description toggles
+  ---------------------------------*/
+
+  // Loop through each H5 in the description
+  $('.product-description.toggles h5').each(function(index, value){
+
+    // For each H5, wrap everything from after the heading to just before the next one in a div with the class toggled-content
+    $(this).nextUntil('h5').wrapAll('<div class="toggled-content">');
+
+    // Give each h5 the class "toggle"
+    $(this).addClass( 'toggle' );
+
+    // Add tabindex=0 to make toggle keyboard accessible
+    $(this).attr('tabindex', '0');
+  });
+</script>
+
+<script>
+  /* Center select menus
+  --------------------*/
+
+  jQuery(document).ready(function($){
+    var fluidcenter = function() {
+      if($(window).width() > 700) { // Show this only on larger screens
+
+        function getTextWidth(txt) {
+          var $elm = $('<span class="tempforSize">'+txt+'</span>').prependTo("body");
+          var elmWidth = $elm.width();
+          $elm.remove();
+          return elmWidth;
+        }
+        function centerSelect($elm) {
+            var optionWidth = getTextWidth($elm.children(":selected").html())
+            var emptySpace =   $elm.width()- optionWidth;
+            $elm.css("text-indent", (emptySpace/2) - 10);// -10 for some browers to remove the right toggle control width
+        }
+        // on start 
+        $('.form-vertical select').each(function(){
+          centerSelect($(this));
+        });
+        // on change
+        $('.form-vertical select').on('change', function(){
+          centerSelect($(this));
+        });
+
+      } else { // Show this only on smaller screens
+        function getTextWidth(txt) {
+          var $elm = $('<span class="tempforSize">'+txt+'</span>').prependTo("body");
+          var elmWidth = $elm.width();
+          $elm.remove();
+          return elmWidth;
+        }
+
+        function centerSelect($elm) {
+            var optionWidth = getTextWidth($elm.children(":selected").html())
+            var emptySpace =   $elm.width()- optionWidth;
+            $elm.css("text-indent", 0); // Don't indent this, we don't want to center it
+        }
+        // on start 
+        $('.form-vertical select').each(function(){
+          centerSelect($(this));
+        });
+        // on change
+        $('.form-vertical select').on('change', function(){
+          centerSelect($(this));
+        });
+      } 
+    };
+
+    // Fire on DOM ready
+    fluidcenter();
+
+    // Fire upon resize
+    $(window).resize(fluidcenter);
+
+  });
+</script>

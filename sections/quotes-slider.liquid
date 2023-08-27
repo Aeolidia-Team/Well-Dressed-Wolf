@@ -1,0 +1,63 @@
+{% javascript %}
+  $('.slider-gallery').slick({
+    'arrows': false,
+    'autoplay': false,
+    'dots': true
+  });
+{% endjavascript %}
+
+<div class="wrapper">
+  {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="slider{% if section.blocks.size == 1 %} single-slide{% endif %}">
+      <ul class="slider-gallery">
+        {% for block in section.blocks %}
+          <li {{ block.shopify_attributes }}>
+            {% if block.settings.quote != '' %}<p>{{ block.settings.quote }}</p>{% endif %}
+            {% if block.settings.author != '' %}<p class="author">{{ block.settings.author }}</p>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div><!-- .slider -->
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Quotes slider gallery",
+    "class": "gallery",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Happy customers are saying"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Quote",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Quotes slider",
+        "category": "Slider"
+      }
+    ]
+  }
+{% endschema %}

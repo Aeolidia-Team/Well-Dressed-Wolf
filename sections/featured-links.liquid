@@ -1,0 +1,74 @@
+<div class="wrapper">
+  {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
+  <div class="featured-sections grid-uniform">
+      {% for block in section.blocks %}
+        <div class="grid__item grid-img large--one-third medium--one-third" {{ block.shopify_attributes }}>
+          {% if block.settings.image == blank %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% else %}
+            {% if block.settings.link %}<a href="{{ block.settings.link }}">{% endif %}<img src="{{ block.settings.image | img_url:'800x'}}" {% if block.settings.link_label !='' %}alt="{{ block.settings.link_label }}"{% endif %}>{% if block.settings.link %}</a>{% endif %}
+          {% endif %}
+
+          {% if block.settings.title != '' %}<h3>{{ block.settings.title }}</h3>{% endif %}
+          {% if block.settings.caption != '' %}<p class="rte">{{ block.settings.caption }}</p>{% endif %}
+          <p>{% if block.settings.link %}<a href="{{ block.settings.link }}">{% endif %}{% if block.settings.link_label != '' %}{{ block.settings.link_label }} &gt;{% endif %}{% if block.settings.link %}</a>{% endif %}</p>
+        </div>
+      {% endfor %}
+  </div>
+</div>
+<!--//wrapper-->
+
+{% schema %}
+  {
+    "name": "Featured link sections",
+    "class": "index-section featured-link-sections",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Meet Our Brands"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "This gallery will look best if all your images are at least 800px wide and the same height."
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "caption",
+            "label": "Caption"
+          },
+          {
+            "type": "text",
+            "id": "link_label",
+            "label": "Link text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured link sections",
+        "category": "Sections"
+      }
+    ]
+  }
+{% endschema %}

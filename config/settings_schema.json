@@ -1,0 +1,322 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Well Dressed Wolf Clean",
+    "theme_author": "Aeolidia",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/sections",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text and buttons"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Text color",
+        "default": "#6f7783",
+        "info": "Default: #6f7783 dark grey"
+      },
+      {
+        "type": "color",
+        "id": "color_septary",
+        "label": "Alternate text color",
+        "default": "#969da8",
+        "info": "Default: #969da8 light grey"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Heading and button color",
+        "default": "#94bec7",
+        "info": "Default: #94bec7 dark blue"
+      },
+      {
+        "type": "color",
+        "id": "color_tertiary",
+        "label": "Button hover color",
+        "default": "#bad5db",
+        "info": "Default: #bad5db light blue"
+      },
+      {
+        "type": "color",
+        "id": "color_quaternary",
+        "label": "Link color",
+        "default": "#e6a6a5",
+        "info": "Default: #e6a6a5 dark pink"
+      },
+      {
+        "type": "color",
+        "id": "color_quinary",
+        "label": "Light background color",
+        "default": "#f1cccb",
+        "info": "Default: #f1cccb light pink"
+      },
+      {
+        "type": "color",
+        "id": "color_senary",
+        "label": "Lighter background color",
+        "default": "#f7e9e9",
+        "info": "Default: #f7e9e9 lighter pink"
+      },
+      {
+        "type": "color",
+        "id": "color_denary",
+        "label": "Lightest background color",
+        "default": "#fff9f9",
+        "info": "Default: #fff9f9 lightest pink"
+      }
+    ]
+  },
+  {
+    "name": "Logo",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image",
+        "info": "This graphic should be at least twice the size as it will display on the page."
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width",
+        "label": "Custom logo width (in pixels)",
+        "default": "400"
+      }
+    ]
+  },
+  {
+    "name": "Graphics",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "footer_graphic",
+        "label": "Small footer graphic",
+        "info": "This graphic should be at least 200px wide."
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_quotes_bg",
+        "label": "Replace polka dots graphic with background color"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "This graphic will look best if it is 260px wide by 260px tall. This graphic will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "topbar_enable",
+        "label": "Enable top bar"
+      },
+      {
+        "type": "text",
+        "id": "brands_label",
+        "label": "Brands label"
+      },
+      {
+        "type": "text",
+        "id": "brand1_name",
+        "label": "Brand 1 name"
+      },
+      {
+        "type": "url",
+        "id": "brand1_url",
+        "label": "Brand 1 link"
+      },
+      {
+        "type": "text",
+        "id": "brand2_name",
+        "label": "Brand 2 name"
+      },
+      {
+        "type": "url",
+        "id": "brand2_url",
+        "label": "Brand 2 link"
+      },
+      {
+        "type": "text",
+        "id": "brand3_name",
+        "label": "Brand 3 name"
+      },
+      {
+        "type": "url",
+        "id": "brand3_url",
+        "label": "Brand 3 link"
+      },
+      {
+        "type": "textarea",
+        "id": "header_tagline",
+        "label": "Header tagline"
+      },
+      {
+        "type": "url",
+        "id": "tagline_url",
+        "label": "Tagline link"
+      },
+      {
+        "type": "textarea",
+        "id": "header_scripts",
+        "label": "Header Scripts",
+        "info": "Use this field if you need to add a script to the header. Be careful when using this field: if you reload the page and something looks broken, delete what you added."
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_nav_1",
+        "label": "Menu 1"
+      },
+      {
+        "type": "text",
+        "id": "footer_nav1_title",
+        "label": "Menu 1 title"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_nav_2",
+        "label": "Menu 2"
+      },
+      {
+        "type": "text",
+        "id": "footer_nav2_title",
+        "label": "Menu 2 title"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_nav_3",
+        "label": "Menu 3"
+      },
+      {
+        "type": "text",
+        "id": "footer_nav3_title",
+        "label": "Menu 3 title"
+      }
+    ]
+  },
+  {
+    "name": "Products",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_zoom",
+        "label": "Enable zoom"
+      },
+      {
+        "type": "textarea",
+        "id": "special_tags",
+        "label": "Special tags",
+        "info": "List the tags you want to feature as badges on product images. Put a comma between each tag. Example: limited,past style,retired,organic"
+      }
+    ]
+  },
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_quantity_enable",
+        "label": "Show quantity"
+      },
+      {
+        "type": "select",
+        "id": "ajax_cart_method",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "stay",
+            "label": "Stay"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "social_enable",
+        "label": "Show social media icons"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter URL",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook URL",
+        "info": "https:\/\/www.facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest URL",
+        "info": "Example: https:\/\/www.pinterest.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram URL",
+        "info": "Example: https:\/\/www.instagram.com\/shopify"
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_enable",
+        "label": "Show newsletter field"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "MailChimp form action URL",
+        "info": "[Where do I find my MailChimp form action URL?](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/theme-newsletter#add-a-mailchimp-newsletter-form-to-your-store-non-sectioned-themes-specific)"
+      }
+    ]
+  },
+  {
+    "name": "[Plus] Product page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "plus_disable_sold_out_variants",
+        "label": "Disable sold out variants",
+        "default": true
+      }
+    ]
+  }
+]

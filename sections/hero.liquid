@@ -1,0 +1,63 @@
+<div class="wrapper">
+  {% if section.settings.img_link %}<a href="{{ section.settings.img_link }}">{% endif %}
+    {% if section.settings.image != blank %}
+      
+      {% comment %}<img src="{{ section.settings.image | img_url:'1400x1400' }}" {% if section.settings.alt !='' %}alt="{{ section.settings.alt }}"{% endif %}>{% endcomment %}
+      {% assign image = section.settings.image %}
+      <img src="{{ image.src | img_url: '1400x' }}" alt="{{ image.alt | escape }}"
+        srcset="
+        {% if image.width > 500 %}{{ image.src | img_url: '500x' }} 500w{% endif %}
+        {% if image.width > 1000 %},{{ image.src | img_url: '900x' }} 1000w{% endif %}
+        {% if image.width > 1400 %},{{ image.src | img_url: '1400x' }} 1400w{% endif %} 
+        " 
+        sizes="(min-width: 1000px) 1200px, (min-width: 400px) 900px, (min-width: 200px) 400px, 100vw"
+      />
+    {% endif %}
+  {% if section.settings.img_link %}</a>{% endif %}
+
+  <div class="caption rte{% if section.settings.image == blank %} no-img{% endif %}">
+    {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
+    {% if section.settings.caption != '' %}<p>{{ section.settings.caption }}</p>{% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Large image and caption",
+    "class": "index-section hero wow fadeIn",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Recommended size: at least 1400px wide"
+      },
+      {
+        "type": "url",
+        "id": "img_link",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "alt",
+        "label": "Image alt description"
+      },
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "caption",
+        "label": "Caption"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Large hero image",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

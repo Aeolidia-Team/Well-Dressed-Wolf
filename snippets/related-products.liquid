@@ -1,0 +1,72 @@
+{% comment %}
+  Manual related products using tags
+{% endcomment %}
+
+{% assign related_products = '' %}
+{% for tag in product.tags %}
+  {% if tag contains 'related-' %}
+    {% assign product_handle = tag | remove: 'related-' %}
+    {% assign related_products = related_products | append: ',' | append: product_handle %}
+  {% endif %}
+{% endfor %}
+{% assign related_products = related_products | remove_first: ',' | split: ',' %}
+
+{% if related_products.size > 0 %}
+
+<div class="related-products">
+  <div class="wrapper">
+    <h2><span>{{ 'products.product.related_heading' | t }}</span></h2>
+
+    <div class="grid grid-uniform">
+      {% assign grid_item_width = 'large--one-quarter medium--one-quarter small--one-half' %}
+      {% for product_handle in related_products %}
+        {% assign product_related = all_products[product_handle] %}
+        <div class="grid__item {{ grid_item_width }}">
+          <div class="product-grid-item">
+            <a href="{{ product_related.url | within: collection }}" class="grid__image">
+              <img src="{{ product_related.featured_image | img_url: '600x808', crop: 'center'  }}" alt="{{ product_related.featured_image.alt | escape }}">
+            </a>
+           <p class="h6">
+                <a href="{{ product_related.url | within: collection }}">{{ product_related.title }}</a>
+              </p>
+              <p class="price">
+                <a href="{{ product_related.url | within: collection }}">
+                  {% comment %}
+                    You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+                    if your variants have different prices.
+                  {% endcomment %}
+                  {% if on_sale %}
+                    {% if product_related.price_varies %}
+                      {% assign sale_price = product_related.price | money %}
+                      {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                    {% else %}
+                      <strong>{{ 'products.product.on_sale' | t }}</strong>
+                      {{ product_related.price | money }}
+                    {% endif %}
+                  {% else %}
+                    {% if product_related.price_varies %}
+                      {% assign price = product_related.price | money %}
+                      {{ 'products.general.from_text_html' | t: price: price }}
+                    {% else %}
+                      {{ product_related.price | money }}
+                    {% endif %}
+                  {% endif %}
+                  {% if sold_out %}
+                    <br><strong>{{ 'products.product.sold_out' | t }}</strong>
+                  {% endif %}
+                  {% if on_sale %}
+                    <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                    <br><s>{{ product_related.compare_at_price | money }}</s>
+                  {% endif %}
+                </a>
+              </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% else %}
+  {% include 'related-products-automatic' %}
+{% endif %}

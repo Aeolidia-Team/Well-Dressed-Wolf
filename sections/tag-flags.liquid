@@ -1,0 +1,27 @@
+{% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+    {% if product.tags contains block.settings.tag %}
+     <p>{{ block.settings.tag }}</p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Special tags",
+    "class": "special-tags",
+    "blocks": [
+      {
+        "type": "tag",
+        "name": "Tag",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tag",
+            "label": "Tag"
+          }
+        ]
+      }
+    ]
+   }
+{% endschema %}
