@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page--about",
+      "settings": {}
+    },
+    "about": {
+      "type": "about-story",
+      "blocks": {
+        "1495654062251": {
+          "type": "text-block-img",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/welldressedwolf_polaroid_bcc22126-35b5-4189-8aa9-39bbb2b57b1c.png",
+            "content": "<p>No one knows your dreams quite like your sister.<\/p>\n<p>We grew up in Louisiana, sharing a childhood infused with magic and mystery in a land of swamplands, mossy oak groves and humidity-tinged summers. The styles we embraced as kids were firmly rooted in southern tradition and casual playfulness: classical pinafores with fairy wings and rain boots, smocked dresses with cowboy boots and boas.<\/p>"
+          }
+        },
+        "1495649029910": {
+          "type": "text-block",
+          "settings": {
+            "content": "<p>Now that we both have large families of our own, we recreate the old-fashioned, timeless styles of our youth with a fresh, updated look. From our first concepts in 2012 to now, we dream, hand sketch, sample and fit every single piece in our brand, but we couldn't do it without our handpicked production artisans overseas and in the USA who actually bring them to life. Our goal is to create beautiful things and enrich the lives of all who touch our clothing— from the at-home hand stitchers to the talented factory finishers, to the sweet children who eventually wear our pieces.<\/p>"
+          }
+        },
+        "1495649102954": {
+          "type": "text-block",
+          "settings": {
+            "content": "<p>We juggle it all with the support of our tight-knit family, hardworking team, close friends and encouraging customers. <br>This makes you part of the WDW family, too.<\/p>\n<p><\/p>\n<p>Warmly,<br>Shannon &amp; Sarah<\/p>"
+          }
+        },
+        "1495654308702": {
+          "type": "gallery-block",
+          "settings": {
+            "image1": "",
+            "image1_caption": "",
+            "image2": "",
+            "image2_caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "1495654062251",
+        "1495649029910",
+        "1495649102954",
+        "1495654308702"
+      ],
+      "settings": {
+        "title": "Our Fairytale"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about"
+  ]
+} 
