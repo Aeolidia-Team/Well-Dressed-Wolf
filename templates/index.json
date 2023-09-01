@@ -1,0 +1,143 @@
+{
+  "sections": {
+    "1494449332735": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/WDW_Website_Hero_081923.jpg",
+        "img_link": "shopify:\/\/collections\/all",
+        "alt": "Well Dressed Wolf Dresses",
+        "title": "inspired by yesterday. loved today. cherished tomorrow.",
+        "caption": "Our timeless clothing is created for everyday adventures and lasting memories. <br>\r\nWe believe simple moments are beautiful, life is a celebration and even the littlest \r\ncan make a difference in our world. We are so honored to be part of your family history."
+      }
+    },
+    "1494563895987": {
+      "type": "featured-links",
+      "blocks": {
+        "1494563901682": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/wdwBUTTON3.jpg",
+            "link": "shopify:\/\/collections\/all",
+            "title": "Signature line",
+            "caption": "Limited editions, weekly releases, fine fabrics, and darling details define the brand that started it all. Capture time in these innocent styles.",
+            "link_label": "Shop Well Dressed Wolf"
+          }
+        },
+        "1494564062633": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/omijoBUTTON3_c6d4eec4-50a8-4339-8dd3-9cca1c99b0d6.jpg",
+            "link": "http:\/\/Loveomijo.com",
+            "title": "Every Day",
+            "caption": "Fresh and oh-so-sweet for every single day of the week. Let the dancing begin.",
+            "link_label": "Shop Omi Jo"
+          }
+        },
+        "1494564143971": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/wildlingBUTTON3.jpg",
+            "link": "http:\/\/www.gowildling.com",
+            "title": "Swim, dream, pretend",
+            "caption": "Wild adventures await with our line of swimwear, dreamwear, and high end costumes.",
+            "link_label": "Shop Wildling"
+          }
+        }
+      },
+      "block_order": [
+        "1494563901682",
+        "1494564062633",
+        "1494564143971"
+      ],
+      "settings": {
+        "title": "Explore Our Brands"
+      }
+    },
+    "1494564502231": {
+      "type": "featured-collections",
+      "blocks": {
+        "1497617607401": {
+          "type": "collection",
+          "settings": {
+            "collection": "thursday-eight"
+          }
+        },
+        "1494564804272": {
+          "type": "collection",
+          "settings": {
+            "collection": "rompers"
+          }
+        },
+        "1494564509032": {
+          "type": "collection",
+          "settings": {
+            "collection": "dresses"
+          }
+        },
+        "1497617429991": {
+          "type": "collection",
+          "settings": {
+            "collection": "all"
+          }
+        }
+      },
+      "block_order": [
+        "1497617607401",
+        "1494564804272",
+        "1494564509032",
+        "1497617429991"
+      ],
+      "settings": {
+        "title": "Explore our Styles"
+      }
+    },
+    "1494565443598": {
+      "type": "quotes-slider",
+      "blocks": {
+        "1494565554850": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"I am so grateful to be part of the pack! This is why I buy every single load... It’s not just a brand it’s a way of living and I am also grateful for the memories that are created wearing our wolf.\"",
+            "author": "Summer"
+          }
+        },
+        "1497615105667": {
+          "type": "quote",
+          "settings": {
+            "quote": "As I mentioned in my first “ode to the wolf” message after receiving my first purchase – you’ve gained a fan for life. The grace, integrity, and honor with which you run WDW is second to none. Love and hugs!",
+            "author": "Christie W."
+          }
+        }
+      },
+      "block_order": [
+        "1494565554850",
+        "1497615105667"
+      ],
+      "settings": {
+        "title": "happy customers are saying"
+      }
+    },
+    "1494565784127": {
+      "type": "instagram",
+      "settings": {
+        "instagram_title": "Get social with us!"
+      }
+    },
+    "1494612235814": {
+      "type": "featured-info",
+      "settings": {
+        "text": "It's no secret that we like pretty things, but our true love is for people. \r\n<br>This passion guides our every decision from production to charitable giving.",
+        "link": "shopify:\/\/pages\/our-mission",
+        "link_label": "Read more about Well Dressed Wolf and our mission here"
+      }
+    }
+  },
+  "order": [
+    "1494449332735",
+    "1494564502231",
+    "1494565443598",
+    "1494612235814",
+    "1494563895987",
+    "1494565784127"
+  ]
+}  
