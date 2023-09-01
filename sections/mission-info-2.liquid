@@ -1,39 +1,47 @@
 {% if section.blocks.size > 0 %}
-  <div class="mission2-wrapper">
-    <div class="wrapper">
-      {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
+  
+  <div class="page-content-wrapper">
+    <div class="page-content">
 
-      {% for block in section.blocks %}
-        <div class="custom-item" {{ block.shopify_attributes }}>
-        
-        {% case block.type %}
+      <div class="mission2-wrapper">
+        <div class="wrapper rte">
+          {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
 
-          {% when 'text-block' %}
-            {% if block.settings.content != blank %}{{ block.settings.content }}{% endif %}
+          {% for block in section.blocks %}
+            <div class="custom-item" {{ block.shopify_attributes }}>
+            
+            {% case block.type %}
 
-          {% when 'gallery-block' %}
-            <div class="grid-uniform">
-              {% if block.settings.image1 != blank %}
-                <div class="grid__item grid-img large--five-twelfths medium--five-twelfths">
-                  <img src="{{ block.settings.image1 | img_url:'800x822', crop: 'center' }}" alt="">
-                  {% if block.settings.image1_caption != blank %}<p class="caption">{{ block.settings.image1_caption }}</p>{% endif %}
+              {% when 'text-block' %}
+                {% if block.settings.content != blank %}{{ block.settings.content }}{% endif %}
+
+              {% when 'gallery-block' %}
+                <div class="grid-uniform">
+                  {% if block.settings.image1 != blank %}
+                    <div class="grid__item grid-img large--five-twelfths medium--five-twelfths">
+                      <img src="{{ block.settings.image1 | img_url:'800x822', crop: 'center' }}" alt="">
+                      {% if block.settings.image1_caption != blank %}<p class="caption">{{ block.settings.image1_caption }}</p>{% endif %}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.image2 != blank %}
+                    <div class="grid__item grid-img large--seven-twelfths medium--seven-twelfths">
+                      <img src="{{ block.settings.image2 | img_url:'800x580', crop: 'center' }}" alt="">
+                      {% if block.settings.image2_caption != blank %}<p class="caption">{{ block.settings.image2_caption }}</p>{% endif %}
+                    </div>
+                  {% endif %}
                 </div>
-              {% endif %}
+          
+              {% endcase %}
+            </div><!--//custom-item-->
+          {% endfor %}
+        </div>
+        <!--//wrapper-->
+      </div>
 
-              {% if block.settings.image2 != blank %}
-                <div class="grid__item grid-img large--seven-twelfths medium--seven-twelfths">
-                  <img src="{{ block.settings.image2 | img_url:'800x580', crop: 'center' }}" alt="">
-                  {% if block.settings.image2_caption != blank %}<p class="caption">{{ block.settings.image2_caption }}</p>{% endif %}
-                </div>
-              {% endif %}
-            </div>
-      
-          {% endcase %}
-        </div><!--//custom-item-->
-      {% endfor %}
     </div>
-    <!--//wrapper-->
   </div>
+  
 {% endif %}
 
 {% schema %}
