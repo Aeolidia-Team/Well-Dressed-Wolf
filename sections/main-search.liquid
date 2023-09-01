@@ -26,7 +26,7 @@
 {% paginate search.results by 10 %}
 
   <div class="page-content-wrapper">
-    <div class="page-content">
+    <div class="page-content"> 
 
       {% if search.performed %}
         {% if search.results_count == 0 %}
@@ -38,7 +38,7 @@
         <h1 class="text-center">{{ 'general.search.title' | t }}</h1>
       {% endif %}
 
-      {% include 'search-bar' %}
+      {% render 'search-bar' %}
 
       {% if search.performed %}
 
@@ -69,14 +69,16 @@
                   {% if item.featured_image %}
                     <div class="grid__item one-third">
                        <a href="{{ item.url }}" title="{{ item.title | escape }}">
-                        {{ item.featured_image.src |  img_url: '400x400', crop: 'center' | img_tag: item.featured_image.alt }}
+                        {{ item.featured_image.src | img_url: "400x400", crop: "center" | img_tag: item.featured_image.alt }}
                       </a>                 
                     </div>
                   {% endif %}
 
                   {% if item.image %}
                     <div class="grid__item one-third">
-                     <a href="{{ item.url }}" title="{{ item.title | escape }}"> <img src="{{ item | article.image.src | img_url: '400x400', crop: 'center }}" alt="{{ item.title }}" /> </a>                  
+                      <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                        <img src="{{ item.image.src | img_url: "400x400", crop: "center" }}" alt="{{ item.title }}" />
+                      </a>                  
                     </div>
                   {% endif %}
 
