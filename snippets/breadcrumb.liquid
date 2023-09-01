@@ -13,8 +13,8 @@
     {% for link in linklists.collections.links %}
       {% assign cur_parent = link.title | handleize %}
       {% assign cur_parent_url = link.url %}
-      {% if linklists.[cur_parent].links.size > 0 %}
-        {% for link in linklists.[cur_parent].links %}
+      {% if linklists[cur_parent].links.size > 0 %}
+        {% for link in linklists[cur_parent].links %}
           {% if link.title == collection.title %}
             {% assign parent = cur_parent %}
             {% assign parent_url = cur_parent_url %}
@@ -45,8 +45,8 @@
       {% for link in linklists.collections.links %}
         {% assign cur_parent = link.title | handleize %}
         {% assign cur_parent_url = link.url %}
-        {% if linklists.[cur_parent].links.size > 0 %}
-          {% for link in linklists.[cur_parent].links %}
+        {% if linklists[cur_parent].links.size > 0 %}
+          {% for link in linklists[cur_parent].links %}
             {% if link.title == collection.title %}
               {% assign parent = cur_parent %}
               {% assign parent_url = cur_parent_url %}
@@ -64,8 +64,8 @@
       {% for link in linklists.collections.links %}
         {% assign cur_parent = link.title | handleize %}
         {% assign cur_parent_url = link.url %}
-        {% if linklists.[cur_parent].links.size > 0 %}
-          {% for link in linklists.[cur_parent].links %}
+        {% if linklists[cur_parent].links.size > 0 %}
+          {% for link in linklists[cur_parent].links %}
             {% if link.title == collection.title %}
               {% assign parent = cur_parent %}
               {% assign parent_url = cur_parent_url %}
