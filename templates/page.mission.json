@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page--about",
+      "settings": {}
+    },
+    "mission-info-1": {
+      "type": "mission-info-1",
+      "blocks": {
+        "1495663018937": {
+          "type": "text-block",
+          "settings": {
+            "content": "<p>Encouraging empowerment through meaningful employment is a big responsibility for the modern business owner. The fact that Well Dressed Wolf, Omi Jo, and Wildling are creating better lives for women all over our big world—including the United States—well, it makes our hearts full. We are so proud to work with family friendly teams that place huge value on growth and artistic expression.<\/p>"
+          }
+        },
+        "1495663247702": {
+          "type": "gallery-block",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Indiafactory.jpg",
+            "image1_caption": "one of the small factories used to stitch our pieces together",
+            "image2": "shopify:\/\/shop_images\/INDIAsewingcircle.jpg",
+            "image2_caption": "handwork is done at home often in little sewing circles  like this, surrounded by family and friends"
+          }
+        },
+        "1495663040989": {
+          "type": "text-block",
+          "settings": {
+            "content": "<p>While we work with teams in El Salvador and Indonesia, the bulk of our Well Dressed Wolf pieces come from India. We think our head of production over there says it better than we ever could. In her own words, here's what she has to say about the meaningful work she's helping us do:<\/p>"
+          }
+        },
+        "1495663195669": {
+          "type": "quote-block",
+          "settings": {
+            "quote": "<p>&ldquo;Our method of working is somewhat unusual. We make high quality and unique clothing, not mass-produced items that have to be churned out at the lowest cost. The idea is to make a product we can be proud of, that can showcase some of the fabulous handwork and needlework skills we have in India, and do this so that mothers can dress their kids in beautiful clothes at a reasonable cost.\"<\/p>",
+            "quote_more": "<p>\"We work with hundreds of artisans who do the handwork on our clothes, and almost all of them are women; so it made perfect sense to plan the work so it gets done at home, by the artisan.<br><br>When we begin work on any piece, our first step is to train the artisans on the design. Following training, the artisans take the pieces back home with them to work on. We also provide free embroidery training (an &ldquo;Embroidery 101&rdquo;, so to speak) for those who are interested in learning a new skill that can give them employment.<br><br>The advantage of this method is the flexibility it provides. Artisans work at their own pace and do it from home so that they can be with their children. The income earned from this work helps them create a better life for their children; and importantly, it gives them a voice that's heard and respected in their family and community. <br><br>Some of our artisans are members of cooperatives. As part owners of the cooperative, they negotiate a fair rate for the work they do, set their delivery times and are, at every stage, in control of the process. One of the coops we work with produced the applique panels on our snowflake dresses. To me it seems the most remarkable part of the whole process, that three hundred women in a very remote corner of India can have a very immediate connect with the lives of fellow women living thousands of miles away through the work they do. <br><br>We know the garment industry in general has a bad rep for how it treats employees. And that has always made us more conscious that our work should empower not exploit. While we do subcontract the final stitching together of the garment, we have always tried to work in a way that supports individuals rather than corporations. The garments are not stitched in giant buildings with thousands of workers. We run very small teams, frequently the factory owner is hands-on and also works as the Master Cutter or Tailor in the factory. He knows the men and women who work for him and shares the same working conditions that the others in the team do. <br><br>I am certainly not saying there is no poverty or hardship in India. We are after all a developing country and we have a host of problems that need resolving, but the road to a better future is through employment... So to everyone who buys clothing made by us, I want to say that your action brings joy to our lives. In return, I sincerely hope that our work brings joy to your life too.\"<\/p>\n<p><\/p>\n<p>~Head of Production, India<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1495663018937",
+        "1495663247702",
+        "1495663040989",
+        "1495663195669"
+      ],
+      "settings": {
+        "title": "Ethical Production"
+      }
+    },
+    "mission-info-2": {
+      "type": "mission-info-2",
+      "blocks": {
+        "1495664389901": {
+          "type": "text-block",
+          "settings": {
+            "content": "<p>We have been so blessed and our own kids have more than they need. They're safe, happy, well fed and abundantly loved. It's easy to forget that not all children are so lucky. Months of searching for a way to help eventually led us to Angel House. With their assistance, we were able to build a home and secure a clean water well for 25 orphaned children in India. Soon after, we were blessed with a second opportunity to fund an orphanage that recently welcomed 25 more children home. But it won't stop there. A portion of every sale is dedicated to creating better lives for women and children through charities that are dear to our hearts, from seeking an end to human trafficking to feeding the needy. With your help we plan to make a meaningful impact on the future of our world.<\/p>"
+          }
+        },
+        "1495664424376": {
+          "type": "gallery-block",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/littledencomingin.jpg",
+            "image1_caption": "the opening of our first Little Den orphanage",
+            "image2": "shopify:\/\/shop_images\/littledenconfetti.jpg",
+            "image2_caption": "celebrating their new home"
+          }
+        }
+      },
+      "block_order": [
+        "1495664389901",
+        "1495664424376"
+      ],
+      "settings": {
+        "title": "Giving Back"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mission-info-1",
+    "mission-info-2"
+  ]
+}
