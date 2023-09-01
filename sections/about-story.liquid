@@ -1,55 +1,63 @@
-{% if section.blocks.size > 0 %}
-  <div class="story-wrapper">
-    <div class="wrapper">
-      {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
+<div class="page-content-wrapper">
+  <div class="page-content">
 
-      {% for block in section.blocks %}
-        <div class="custom-item" {{ block.shopify_attributes }}>
-        
-        {% case block.type %}
-
-          {% when 'text-block' %}
-            {% if block.settings.content != blank %}{{ block.settings.content }}{% endif %}
-
-          {% when 'text-block-img' %}
-            {% if block.settings.image != blank %}
-              <div class="grid-uniform text-block-img">
-                <div class="grid__item grid-img large--one-third medium--one-half">
-                  <img src="{{ block.settings.image | img_url:'500x500' }}" alt="">
-                </div>
-                <div class="grid__item large--two-thirds medium--one-half">
-                  <div class="text-block-img-text">{{ block.settings.content }}</div>
-                </div>
-              </div>
-            {% else %}
-              {{ block.settings.content }}
-            {% endif %}
-
-          {% when 'gallery-block' %}
-            <div class="gallery-wrapper">
-              <div class="grid-uniform">
-                {% if block.settings.image1 != blank %}
-                  <div class="grid__item grid-img large--one-half medium--one-half">
-                    <img src="{{ block.settings.image1 | img_url:'800x800', crop: 'center' }}" alt="">
-                    {% if block.settings.image1_caption != blank %}<p class="caption">{{ block.settings.image1_caption }}</p>{% endif %}
-                  </div>
-                {% endif %}
-                {% if block.settings.image2 != blank %}
-                  <div class="grid__item grid-img large--one-half medium--one-half">
-                    <img src="{{ block.settings.image2 | img_url:'800x800', crop: 'center'  }}" alt="">
-                    {% if block.settings.image2_caption != blank %}<p class="caption">{{ block.settings.image2_caption }}</p>{% endif %}
-                  </div>
-                {% endif %}
-              </div>
-            </div>
+    {% if section.blocks.size > 0 %}
       
-          {% endcase %}
-        </div><!--//custom-item-->
-      {% endfor %}
-    </div>
-    <!--//wrapper-->
+      <div class="story-wrapper rte">
+        <div class="wrapper">
+          {% if section.settings.title != '' %}<h2>{{ section.settings.title }}</h2>{% endif %}
+
+          {% for block in section.blocks %}
+            <div class="custom-item" {{ block.shopify_attributes }}>
+            
+            {% case block.type %}
+
+              {% when 'text-block' %}
+                {% if block.settings.content != blank %}{{ block.settings.content }}{% endif %}
+
+              {% when 'text-block-img' %}
+                {% if block.settings.image != blank %}
+                  <div class="grid-uniform text-block-img">
+                    <div class="grid__item grid-img large--one-third medium--one-half">
+                      <img src="{{ block.settings.image | img_url:'500x500' }}" alt="">
+                    </div>
+                    <div class="grid__item large--two-thirds medium--one-half">
+                      <div class="text-block-img-text">{{ block.settings.content }}</div>
+                    </div>
+                  </div>
+                {% else %}
+                  {{ block.settings.content }}
+                {% endif %}
+
+              {% when 'gallery-block' %}
+                <div class="gallery-wrapper">
+                  <div class="grid-uniform">
+                    {% if block.settings.image1 != blank %}
+                      <div class="grid__item grid-img large--one-half medium--one-half">
+                        <img src="{{ block.settings.image1 | img_url:'800x800', crop: 'center' }}" alt="">
+                        {% if block.settings.image1_caption != blank %}<p class="caption">{{ block.settings.image1_caption }}</p>{% endif %}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.image2 != blank %}
+                      <div class="grid__item grid-img large--one-half medium--one-half">
+                        <img src="{{ block.settings.image2 | img_url:'800x800', crop: 'center'  }}" alt="">
+                        {% if block.settings.image2_caption != blank %}<p class="caption">{{ block.settings.image2_caption }}</p>{% endif %}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+          
+              {% endcase %}
+            </div><!--//custom-item-->
+          {% endfor %}
+        </div>
+        <!--//wrapper-->
+      </div>
+    {% endif %}
+
   </div>
-{% endif %}
+  
+</div>
 
 {% schema %}
   {
