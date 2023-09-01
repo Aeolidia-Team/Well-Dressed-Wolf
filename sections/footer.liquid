@@ -1,0 +1,244 @@
+<!-- begin site-footer -->
+<footer class="site-footer" role="contentinfo">
+  
+  <div class="site-footer2">
+    <div class="wrapper">
+      <div class="footer-content-wrapper">
+
+        {% for block in section.blocks %}
+          
+          {% if block.type == "menu" %}
+
+            <div class="footer-menu">
+              
+              {% if block.settings.menu != blank %}
+                <h3>
+                  {%- if block.settings.title != '' -%}
+                    {{ block.settings.title }}
+                  {%- else -%}
+                    {{ block.settings.menu.title }}
+                  {%- endif -%}
+                </h3>
+
+                <ul class="footer-nav info-nav">
+                  {% for link in linklists[block.settings.menu].links %}
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                      </li>
+                  {% endfor %}
+                </ul>
+
+              {% endif %}
+
+              {% if block.settings.show_social == true %}
+                <div class="footer-social">
+                  {% include 'social-menu' %}
+                </div>
+              {% endif %}
+
+            </div>
+            
+          {% elsif block.type == "newsletter" %}
+
+            <div class="footer-newsletter">
+              <div class="newsletter">
+                
+                <div class="signup">
+                  <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
+                  <p>{{ 'layout.footer.newsletter_subtitle' | t }}</p>
+                  {% if settings.newsletter_form_action != blank %}
+                    <form action="{{ settings.newsletter_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+                      <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                      <span class="input-group-btn">
+                        <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                      </span>
+                    </form>
+                  </div>
+                  <div class="img-wrapper">
+                    {% if section.settings.footer_graphic %}
+                      <a href="/">
+                        <img src="{{ section.settings.footer_graphic | img_url: "200x" }}" srcset="{{ section.settings.footer_graphic | img_url: "200x" }}" alt="">
+                      </a>
+                    {% else %}
+                      <a href="/"><img class="default" src="{{ 'footer_girlandwolf.svg' | asset_url }}" alt=""></a>
+                    {% endif %}
+                  </div>
+
+                {% else %}
+                  {% form 'customer' %}
+                    {{ form.errors | default_errors }}
+                    {% if form.posted_successfully? %}
+                      <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                    {% else %}
+                      <div class="input-group">
+                        <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <span class="input-group-btn">
+                          <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                        </span>
+                      </div>
+                    {% endif %}
+                  {% endform %}
+                  </div>
+                  <div class="img-wrapper">
+                    {% if section.settings.footer_graphic %}
+                      <a href="/"><img src="{{ section.settings.footer_graphic | img_url: "200x" }}" srcset="{{ section.settings.footer_graphic | img_url: "200x" }}" alt=""></a>
+                      {% else %}
+                        <a href="/"><img class="default" src="{{ 'footer_girlandwolf.svg' | asset_url }}" alt=""></a>
+                      {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+
+            </div>
+
+          {% endif %}
+
+        {% endfor %}
+
+        {% comment %}
+
+        <div class="footer-menu">
+          {% if settings.footer_nav_1 != '' %}
+            <h3>{% if settings.footer_nav1_title != '' %}{{ settings.footer_nav1_title }}{% endif %}</h3>
+            <ul class="footer-nav info-nav">
+              {% for link in linklists[settings.footer_nav_1].links %}
+                  <li>
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+
+        <div class="footer-menu">
+          
+          {% if settings.footer_nav_2 != '' %}
+            <h3>{% if settings.footer_nav2_title != '' %}{{ settings.footer_nav2_title }}{% endif %}</h3>
+            <ul class="footer-nav info-nav">
+              {% for link in linklists[settings.footer_nav_2].links %}
+                  <li>
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+        </div>
+
+        <div class="footer-menu">
+          {% if settings.footer_nav_3 != '' %}
+            <h3>{% if settings.footer_nav3_title != '' %}{{ settings.footer_nav3_title }}{% endif %}</h3>
+            <ul class="footer-nav info-nav">
+              {% for link in linklists[settings.footer_nav_3].links %}
+                  <li>
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+
+        {% endcomment %}
+
+        {% if settings.newsletter_enable %}
+          
+          <div class="footer-newsletter">
+            <div class="newsletter">
+              <div class="signup">
+                <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
+                <p>{{ 'layout.footer.newsletter_subtitle' | t }}</p>
+                {% if settings.newsletter_form_action != blank %}
+                  <form action="{{ settings.newsletter_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+                    <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                    <span class="input-group-btn">
+                      <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                    </span>
+                  </form>
+                </div>
+                <div class="img-wrapper">
+                  {% if section.settings.footer_graphic %}
+                    <a href="/">
+                      <img src="{{ section.settings.footer_graphic | img_url: "200x" }}" srcset="{{ section.settings.footer_graphic | img_url: "200x" }}" alt="">
+                    </a>
+                    {% else %}
+                      <a href="/"><img class="default" src="{{ 'footer_girlandwolf.svg' | asset_url }}" alt=""></a>
+                    {% endif %}
+                </div>
+              {% else %}
+                {% form 'customer' %}
+                  {{ form.errors | default_errors }}
+                  {% if form.posted_successfully? %}
+                    <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                  {% else %}
+                    <div class="input-group">
+                      <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+                      <span class="input-group-btn">
+                        <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                      </span>
+                    </div>
+                  {% endif %}
+                {% endform %}
+                </div>
+                <div class="img-wrapper">
+                  {% if section.settings.footer_graphic %}
+                    <a href="/"><img src="{{ section.settings.footer_graphic | img_url: "200x" }}" srcset="{{ section.settings.footer_graphic | img_url: "200x" }}" alt=""></a>
+                  {% else %}
+                    <a href="/"><img class="default" src="{{ 'footer_girlandwolf.svg' | asset_url }}" alt=""></a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+
+</footer>
+<!-- //site-footer -->
+
+{% schema %}
+  {
+    "name": "Footer",
+    "blocks": [
+      {
+        "type": "menu",
+        "name": "Menu",
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Menu Title"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_social",
+            "label": "Show Social"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer-menu",
+        "label": "Footer Menu",
+        "default": "footer"
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_graphic",
+        "label": "Small footer graphic",
+        "info": "This graphic should be at least 200px wide."
+      }
+    ]
+  }
+{% endschema %}

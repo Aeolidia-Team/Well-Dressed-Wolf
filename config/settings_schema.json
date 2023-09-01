@@ -93,12 +93,6 @@
     "name": "Graphics",
     "settings": [
       {
-        "type": "image_picker",
-        "id": "footer_graphic",
-        "label": "Small footer graphic",
-        "info": "This graphic should be at least 200px wide."
-      },
-      {
         "type": "checkbox",
         "id": "hide_quotes_bg",
         "label": "Replace polka dots graphic with background color"
