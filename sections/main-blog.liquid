@@ -1,0 +1,199 @@
+<!-- /templates/blog.liquid -->
+{% comment %}
+
+  Loop through a defined number of articles with the 'paginate' tag.
+  Don't forget to close the tag after your loop.
+
+{% endcomment %}
+
+{% paginate blog.articles by 5 %}
+
+{% comment %}
+  This template is also used for listing out articles of a specific tag.
+  You can change layouts or styles by checking if current_tags is true.
+{% endcomment %}
+<div class="page-content-wrapper">
+  <div class="page-content">
+
+    {% if current_tags %}
+      <h1>{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
+    {% endif %}
+
+    {% comment %}
+      Loop through each article in your blog. This is limited to what you set for pagination above.
+
+      For more info on article liquid tags:
+        - http://docs.shopify.com/themes/liquid-variables/article
+    {% endcomment %}
+
+    {% for article in blog.articles %}
+
+      <div class="article">
+        <div class="article-header">
+          <p class="date"><time datetime="{{ article.published_at | date: '%Y-%m-%d' }}"><a href="{{ article.url }}">{{ article.published_at | date: format: 'month_day_year' }}</a></time></p>
+          <h2 class="h3"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+          <p class="author"><a href="{{ article.url }}">Posted by {{ article.user.first_name }}</a></p>
+       </div>
+
+        {% if article.image %}
+          <a class="article__featured-image" href="{{ article.url }}">
+            {{ article | img_url: '1024x1024' | img_tag: article.title }}
+          </a>
+        {% endif %}
+
+        {% comment %}
+          Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
+          Since this is just a listing page, you can either use the excerpt or truncate the full article.
+        {% endcomment %}
+        
+        {% if article.excerpt.size > 0 %}
+            <div class="rte">
+              {{ article.excerpt }}
+              <p class="read-more"><a class="btn" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a></p>
+            </div>
+        {% else %}
+            <div class="rte">{{ article.content }}</div>
+            {% include 'sharing' %}
+        {% endif %}
+     
+        {% comment %}
+          Show off meta information like number of comments and tags.
+        {% endcomment %}
+        {% comment %}
+        <ul class="inline-list">
+          {% if blog.comments_enabled? %}
+          <li>
+            <a href="{{ article.url }}#comments">
+              {{ 'blogs.comments.with_count' | t: count: article.comments_count }}
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+        {% endcomment %}
+      </div>
+
+      {% comment %}{% unless forloop.last %}<hr>{% endunless %}{% endcomment %}
+
+    {% endfor %}
+
+    {% if paginate.pages > 1 %}
+      <div class="pagination">
+        {{ paginate | default_pagination | replace: '&laquo; Previous', '&lt; Previous Posts' | replace: 'Next &raquo;', 'Next Posts &gt;' }}
+      </div>
+    {% endif %}
+
+  </div>
+
+  <div class="sidebar">
+
+    {% if section.settings.content != '' %}
+      <div class="blog-info">
+        <aside class="sidebar-section rte">
+          <img class="confetti" src="{{ 'confetti_blog.svg' | asset_url }}" alt="">
+          {% if section.settings.title != '' %}<h3><a href="{{ blog.url }}">{{ section.settings.title }}</a></h3>{% endif %}
+          {% if section.settings.subtitle != '' %}<p class="subtitle"><a href="{{ blog.url }}">{{ section.settings.subtitle }}</a></p>{% endif %}
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url:'500x500' }}" alt="">
+          {% endif %}
+          {{ section.settings.content }}
+        </aside><!--//sidebar-section-->
+      </div>
+    {% endif %}
+
+    <aside class="blog-search sidebar-section">
+      <h3><span>{{ 'blogs.sidebar.search_header' | t }}</span></h3>
+      <form action="/search" method="get" class="input-group search-bar" role="search">
+          {% comment %}
+            Show only blog posts.
+          {% endcomment %}
+        <input type="hidden" name="type" value="article">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="" class="input-group-field" aria-label="{{ 'blogs.sidebar.search_header' | t }}">
+        <span class="input-group-btn">
+          <button type="submit" class="btn icon-fallback-text">
+            <span class="icon icon-search" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+          </button>
+        </span>
+      </form>
+    </aside>
+    <!-- //blog-search -->
+
+    {% if blog.all_tags.size > 0 %}
+      <aside class="blog-tags sidebar-section">
+        <h3><span>{{ 'blogs.sidebar.categories' | t }}</span></h3>
+        <select onchange="window.location = '/blogs/{{ blog.title | handleize }}/tagged/' + this.value;">
+          {% for tag in blog.all_tags %}
+            <option value="{{tag | handleize }}">{{tag}}</option>
+          {% endfor %}
+          <option value="{{tag}}" selected="selected">{{ 'blogs.sidebar.categories_menu' | t }}</option>
+        </select>
+        </form>
+      </aside>
+      <!-- //blog-tags -->
+    {% endif %}
+
+    {% if section.settings.sidebar_menu != '' %}
+      <aside class="blog-menu sidebar-section">
+        {% if section.settings.sidebar_title != '' %}<h3>{{ section.settings.sidebar_title }}</h3>{% endif %}
+        <ul>
+          {% for link in linklists[section.settings.sidebar_menu].links %}
+            <li>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </aside>
+    {% endif %}
+
+  </div>
+
+</div>
+
+{% endpaginate %}
+
+{% schema %}
+  {
+    "name": "Blog",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Blog Info" 
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "subtitle",
+        "type": "text",
+        "label": "Subtitle"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Recommended size: at least 500px wide"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "Content"
+      },
+      {
+        "type": "header",
+        "content": "Blog Sidebar"
+      },
+      {
+        "id": "sidebar_title",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "type": "link_list",
+        "id": "sidebar_menu",
+        "label": "Sidebar menu"
+      }
+    ]
+   }
+{% endschema %}

@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "title": "the pack place",
+        "subtitle": "the little blog <em>for<\/em> our little brands",
+        "image": "shopify:\/\/shop_images\/welldressedwolf_polaroid_bcc22126-35b5-4189-8aa9-39bbb2b57b1c.png",
+        "content": "<p>Our timeless clothing is created for everyday adventures and lasting <br>memories. We believe simple moments are beautiful, life is a celebration and even the littlest can make a difference in our world. We are so honored to be part of your family history.<\/p>",
+        "sidebar_title": "Shop Our Categories",
+        "sidebar_menu": "shop"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+} 
